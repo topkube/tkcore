@@ -4,6 +4,8 @@ metadata:
   name: core-keycloak
   labels:
     app: core-sso
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   instances: 1
   extensions:
@@ -16,6 +18,8 @@ apiVersion: keycloak.org/v1alpha1
 kind: KeycloakRealm
 metadata:
   name: core-keycloakrealm-admin
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   realm:
     id: admin
@@ -32,6 +36,8 @@ metadata:
   name: admin-realm-user-marc
   labels:
     app: sso
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   user:
     username: marc
